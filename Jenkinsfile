@@ -10,7 +10,6 @@ pipeline {
        
         stage ('Build') {
             steps {
-                echo "Building container image.."
                 script {
                     dockerInstance = docker.build${imageName}
                 }
@@ -19,10 +18,10 @@ pipeline {
 
         stage ('Test') {
             steps {
-                sh 'echo "Testing some config within built-in container..."'
+                echo "Testing some config within built-in container..."
                 script {
                     dockerInstance.inside('-u root')
-                    sh 'echo "HELLO FROM INSIDE THE CONTAINER!!!"'
+                    echo "HELLO FROM INSIDE THE CONTAINER!!!"
                     sh 'timedatectl' 
                 }
             }
@@ -31,7 +30,7 @@ pipeline {
 
         stage ('Deploy') {
             steps {
-                sh 'echo "Deploying to mak3v dockerhub..."'
+                echo "Deploying to mak3v dockerhub..."
                 script {
                     docker.withRegistry('', registryCredentialSet) {
                     dockerInstance.push("${env.BUILD_NUMBER}")
