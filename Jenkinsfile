@@ -4,7 +4,7 @@ pipeline {
         imageName = 'mak3v/makevimage'
         BUILD_NUMBER = ''
         registryCredentialSet = 'dockerhub'
-    }
+    }       
 
     stages {
        
@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo "Building container image..."
                 script {
-                    dockerInstance = docker.build($imageName)
+                    dockerInstance = docker.build{$imageName}
                 }
             }
         }
