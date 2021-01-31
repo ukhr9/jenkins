@@ -38,6 +38,7 @@ pipeline {
                     docker.withRegistry('', registryCredentialSet) {
                     dockerInstance.push("${env.BUILD_NUMBER}")
                     dockerInstance.push("latest")
+                    }
                 }
             }
         }
