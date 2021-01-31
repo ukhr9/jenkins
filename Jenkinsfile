@@ -10,7 +10,7 @@ pipeline {
        
         stage ('Build') {
             steps {
-                sh 'echo "Building container image.."'
+                echo "Building container image.."
                 script {
                     dockerInstance = docker.build{$imageName}
                 }
