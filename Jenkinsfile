@@ -10,7 +10,7 @@ pipeline {
        
         stage ('Build') {
             steps {
-                echo "Building container image..."
+                sh "echo "Building container image...""
                 script {
                     dockerInstance = docker.build{$imageName}
                 }
@@ -19,14 +19,12 @@ pipeline {
 
         stage ('Test') {
             steps {
-                echo "Testing some config within built-in container..."
+                sh "echo "Testing some config within built-in container...""
                 script {
                     dockerInstance.inside('-u root')
-                    sh 'echo HELLO FROM INSIDE THE CONTAINER!!!'
+                    sh "echo "HELLO FROM INSIDE THE CONTAINER!!!""
                     sh 'timedatectl' 
                 }
-                echo "Now we're inside of it, everything was ok."
-
             }
 
         }
