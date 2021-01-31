@@ -20,7 +20,7 @@ pipeline {
                 echo "Testing some config within built-in container..."
                 script {
                     dockerInstance.inside('-u root')
-                    sh -c 'echo "HELLO FROM INSIDE THE CONTAINER!!!"'
+                    sh 'echo "HELLO FROM INSIDE THE CONTAINER!!!"'
                     sh 'timedatectl' 
                 }
                 echo "Now we're inside of it, everything was ok."
