@@ -1,7 +1,7 @@
 pipeline {
     agent any
      environment {
-        imageName = 'mak3v/makevimage'
+        imageName = 'makevimage'
         BUILD_NUMBER = ''
         registryCredentialSet = 'dockerhub'
     }       
