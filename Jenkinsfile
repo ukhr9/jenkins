@@ -12,6 +12,7 @@ pipeline {
             steps {
                 script {
                     dockerInstance = docker.build${imageName}
+                    dockerInstance
                 }
             }
         }
