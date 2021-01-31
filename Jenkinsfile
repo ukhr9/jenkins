@@ -5,7 +5,7 @@ pipeline {
         BUILD_NUMBER = ''
         registryCredentialSet = 'dockerhub'
     }
-    
+
     stages {
        
         stage ('Build') {
@@ -22,7 +22,7 @@ pipeline {
                 echo "Testing some config within built-in container..."
                 script {
                     dockerInstance.inside('-u root')
-                    sh 'echo "HELLO FROM INSIDE THE CONTAINER!!!"'
+                    sh 'echo HELLO FROM INSIDE THE CONTAINER!!!'
                     sh 'timedatectl' 
                 }
                 echo "Now we're inside of it, everything was ok."
