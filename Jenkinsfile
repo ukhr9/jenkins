@@ -1,11 +1,13 @@
 pipeline {
-  agent any
-    stages {
-        environment {
+    agent any
+     environment {
         imageName = 'mak3v/makevimage'
         BUILD_NUMBER = ''
         registryCredentialSet = 'dockerhub'
-            }
+    }
+    
+    stages {
+       
         stage ('Build') {
             steps {
                 echo "Building container image..."
@@ -29,7 +31,7 @@ pipeline {
 
         }
 
-        stage ('Deploy')
+        stage ('Deploy') {
             steps {
                 echo "Deploying to mak3v dockerhub..."
                 script {
