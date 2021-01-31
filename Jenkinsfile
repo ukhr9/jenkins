@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo "Building container image.."
                 script {
-                    dockerInstance = docker.build{$imageName}
+                    dockerInstance = docker.build${imageName}
                 }
             }
         }
