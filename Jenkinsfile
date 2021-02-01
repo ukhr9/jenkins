@@ -11,9 +11,8 @@ pipeline {
         stage ('Build') {
             steps {
                 script {
-                    echo "BUilding image"
-                    sh -c "docker build -t ${imageName}:latest"
-                    
+                    echo 'BUilding image'
+                    sh -c 'docker build -t ${imageName}:latest'   
                 }
             }
         }    
