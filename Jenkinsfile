@@ -11,8 +11,9 @@ pipeline {
         stage ('Build') {
             steps {
                 script {
-                    dockerInstance = docker.build${imageName}
-                    dockerInstance
+                    echo "BUilding image"
+                    sh -c "docker build -t ${imageName}:latest"
+                    
                 }
             }
         }    
