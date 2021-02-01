@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { dockerfile true }
      environment {
         imageName = 'makevimage'
         BUILD_NUMBER = ''
@@ -11,7 +11,7 @@ pipeline {
         stage ('Build') {
             steps {
                 script {
-                    sh 'docker build -t ${imageName}:latest'   
+                    sh 'docker build -t ${imageName}:latest .'   
                 }
             }
         }    
